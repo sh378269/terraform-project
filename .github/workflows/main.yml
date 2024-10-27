@@ -89,6 +89,12 @@ jobs: #this is using repo level secrets and variable
             pwd
             mvn -B -DskipTests clean package
             ls -lrt
+
+      - name: build test
+        run: |
+            mvn test
+            cd target
+            ls -lrt
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
 
