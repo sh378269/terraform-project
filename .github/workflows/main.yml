@@ -8,7 +8,8 @@ on:
         required: true
         default: dev
 env:  
-  access_id: "shimpi"
+  access_id: ${{ vars.AWS_ACCESS_KEY_ID}}
+  access_key: ${{ vars.AWS_SECRET_ACCESS_KEY }}
   environment: "dev"
   
 
@@ -37,15 +38,14 @@ jobs:
         run: |
             aws --version
             echo "access key ${{ env.access_id }}"
-            echo "environment type ${{ env.environment }}"
+           
 
       #AWS
       - name: aws credentials Setup
         uses:  aws-actions/configure-aws-credentials@v4
         with: 
-          secrets: inherit
-          aws-access-key-id: ${{ vars.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ vars.AWS_SECRET_ACCESS_KEY }}
+          aws-access-key-id: ${{ env.access_id }}
+          aws-secret-access-key: ${{ env.access_key }}
           aws-region: ${{ vars.AWS_REGION }}
 
       - name : create iam User
