@@ -37,6 +37,18 @@ jobs:
             run: 
               echo "ECR_ARN=$(aws sts get-caller-identity --query 'Account' --output text).dkr.ecr.eu-central-1.amazonaws.com" >> $GITHUB_ENV
               cat $GITHUB_ENV
+
+          - name: creating ECR and cloudwatch
+            run: |
+                
+                pwd
+                ls -a
+                echo "creating ${{ env.ECR_TAG }} ECR and CloudWatch in ${{ inputs.ENV_NAME }} env AWS account"
+              #  terraform init -backend-config=bucket=registr-infra-tf-state-${{ inputs.ENV_NAME }} -backend-config=key=config=ecr-repo/${{ env.ECR_TAG }}.tfstate
+              #  terraform plan -var=shared_state_bucket=registr-infra-tf-state-${{ inputs.ENV_NAME }} -var=app_name=${{ env.ECR_TAG }} -var=market_name=${{ vars.MARKET_NAME }}
+              #  terraform apply -var=shared_state_bucket=registr-infra-tf-state-${{ inputs.ENV_NAME }} -var=app_name=${{ env.ECR_TAG }} -var=market_name=${{ vars.MARKET_NAME }} --auto-approve
+
+        
           - name: checking repo content
             run: |
                 pwd
