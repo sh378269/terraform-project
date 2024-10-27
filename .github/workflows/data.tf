@@ -1,8 +1,8 @@
 data "terraform_remote_state" "shared" {
   backend = "s3"
   config = {
-    bucket  = var.shared_state_bucket
-    key     = "shared/terraform-shared.tfstate"
+    bucket  = "shimpi-dev"
+    key     = "terraform-shared.tfstate"
     region  = "eu-central-1"
     encrypt = true
   }
