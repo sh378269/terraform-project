@@ -62,7 +62,7 @@ jobs: #this is using repo level secrets and variable
       - name: Checkout Repository 
         uses: actions/checkout@v4
         with: 
-            repository: simple-java-maven-app
+            repository: sh378269/simple-java-maven-app
 
       - name: checking repo content
         run: |
