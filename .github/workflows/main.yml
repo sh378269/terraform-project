@@ -1,7 +1,5 @@
 name: first simple project
-on: 
-  push:
-    branch: main
+on: workflow_dispatch
 jobs:
   first-jobs:
     runs-on: ubuntu-latest
