@@ -43,6 +43,7 @@ jobs:
       - name: aws credentials Setup
         uses:  aws-actions/configure-aws-credentials@v4
         with: 
+          secrets: inherit
           aws-access-key-id: ${{ vars.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ vars.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ vars.AWS_REGION }}
