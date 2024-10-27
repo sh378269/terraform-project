@@ -1,5 +1,5 @@
 resource "aws_ecr_repository" "ecr-repo" {
-  name                 = var.app_name
+  name                 = terraform-project
   image_tag_mutability = "MUTABLE"
  
   image_scanning_configuration {
