@@ -9,6 +9,7 @@ on:
         default: dev
 env:  
   access_id: "shimpi"
+  environment: "dev"
   
 
 jobs:
