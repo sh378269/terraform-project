@@ -1,11 +1,67 @@
-resource "local_file" "shimpi"{
-    filename = "${path.module}/shimpi.txt"
-    content = "my test file"
+resource "aws_ecr_repository" "ecr-repo" {
+  name                 = var.app_name
+  image_tag_mutability = "MUTABLE"
+ 
+  image_scanning_configuration {
+    scan_on_push = true
+  }
+  encryption_configuration {
+    encryption_type = "KMS"
+  }
+}
+ 
+resource "aws_ecr_repository_policy" "ecr-repo-permission" {
+  repository = aws_ecr_repository.ecr-repo.name
+  policy     = local.ecrpermission
+}
+ 
+resource "aws_ecr_lifecycle_policy" "ecr-repo-lifeCyclepolicy" {
+  repository = aws_ecr_repository.ecr-repo.name
+ 
+  policy = <<EOF
+{
+  "rules": [
+    {
+      "rulePriority": 1,
+      "description": "Expire untagged images in 1 day.",
+      "selection": {
+        "tagStatus": "untagged",
+        "countType": "sinceImagePushed",
+        "countUnit": "days",
+        "countNumber": 1
+      },
+      "action": {
+        "type": "expire"
+      }
+    },
+    {
+      "rulePriority": 2,
+      "description": "Keep latest tagged images.",
+      "selection": {
+        "tagStatus": "any",
+        "countType": "imageCountMoreThan",
+        "countNumber": 5
+      },
+      "action": {
+        "type": "expire"
+      }
+    }
+  ]
+}
+EOF
 }
 
-resource "aws_iam_user" "admin-user"{
-    name = "awstest"
-    tags = {
-        description = "aws test is tl in project"
-    }
+variable "market_name" {
+  description = "respective market name resources belongs to"
 }
+ 
+variable "shared_state_bucket" {
+  description = "Name of the shared state bucket"
+  type        = string
+}
+ 
+variable "app_name" {
+  description = "Name of the shared state bucket"
+  type        = string
+}
+ 
