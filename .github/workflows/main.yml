@@ -47,7 +47,7 @@ jobs:
 
           - name: creating ECR and cloudwatch
             run: |
-                pwd
+                cd ./.github/workflows
                 ls -a
                 echo "creating ${{ env.ECR_TAG }} ECR and CloudWatch in ${{ env.ENV_NAME }} env AWS account"
                 terraform init -backend-config=bucket=registr-infra-tf-state-${{ inputs.ENV_NAME }} -backend-config=key=config=ecr-repo/${{ env.ECR_TAG }}.tfstate
