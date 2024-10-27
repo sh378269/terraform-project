@@ -1,5 +1,5 @@
 name: first simple project
-on: workflow_dispatch
+on: work
 permissions:
       id-token: write   # This is required for requesting the JWT
       contents: read 
@@ -31,9 +31,9 @@ jobs:
       - name: aws credentials Setup
         uses:  aws-actions/configure-aws-credentials@v4
         with: 
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: eu-central-1
+          aws-access-key-id: ${{ var.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ var.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ var.AWS_REGION }}
 
       - name : create iam User
         run: | 
