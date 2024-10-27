@@ -2,6 +2,10 @@ name: first simple project
 on: 
   push:
       branch: main
+
+permissions:
+      id-token: write   # This is required for requesting the JWT
+      contents: read 
 jobs:
   first-jobs:
     runs-on: ubuntu-latest
@@ -33,7 +37,6 @@ jobs:
           aws-access-key-id: ${{secrets.AWS_ACCESS_KEY}}
           aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
           aws-region: eu-central-1
-          audience: sts.amazonaws.com
 
       - name : create iam User
         run: | 
