@@ -58,8 +58,8 @@ jobs:
                 ls -a
                 echo "creating ${{ env.ECR_TAG }} ECR and CloudWatch in ${{ env.ENV_NAME }} env AWS account"
                  terraform init
-                 terraform plan  -var=app_name=${{ env.ECR_TAG }} -var=market_name=${{ vars.MARKET_NAME }}
-                 terraform apply -var=app_name=${{ env.ECR_TAG }} -var=market_name=${{ vars.MARKET_NAME }} --auto-approve
+                 terraform plan  
+                 terraform apply --auto-approve
 
         
           - name: checking repo content
