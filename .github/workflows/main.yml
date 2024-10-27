@@ -9,7 +9,7 @@ on:
         default: dev
   
 jobs: #this is using repo level secrets and variable
-  first-jobs:
+  second-jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository 
