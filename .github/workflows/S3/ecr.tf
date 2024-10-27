@@ -50,12 +50,3 @@ resource "aws_ecr_lifecycle_policy" "ecr-repo-lifeCyclepolicy" {
 }
 EOF
 }
-
-variable "market_name" {
-  description = "respective market name resources belongs to"
-}
- 
-variable "shared_state_bucket" {
-  description = "Name of the shared state bucket"
-  type        = string
-}
