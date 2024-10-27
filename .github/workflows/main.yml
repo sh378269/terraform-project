@@ -31,10 +31,10 @@ jobs:
           - name: Checkout Repository 
             uses: actions/checkout@v4
 
-          - name: Checkout Repository 
-            uses: actions/checkout@v4
-            with: 
-                repository: sh378269/simple-java-maven-app
+        #  - name: Checkout Repository 
+        #    uses: actions/checkout@v4
+        #    with: 
+        #        repository: sh378269/simple-java-maven-app
 
           - name: setting repo name
             run: |
