@@ -24,7 +24,7 @@ jobs:
         uses: hashicorp/setup-terraform@v1
        
       - name: check aws version........"
-        run: aws version
+        run: aws --version
 
       #AWS
       - name: aws credentials Setup
