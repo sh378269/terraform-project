@@ -59,9 +59,3 @@ variable "shared_state_bucket" {
   description = "Name of the shared state bucket"
   type        = string
 }
- 
-variable "app_name" {
-  description = "Name of the shared state bucket"
-  type        = string
-}
- 
