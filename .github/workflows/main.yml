@@ -27,6 +27,9 @@ jobs:
 
           - name: Setup Terraform
             uses: hashicorp/setup-terraform@v1
+          
+          - name: Checkout Repository 
+            uses: actions/checkout@v4
 
           - name: Checkout Repository 
             uses: actions/checkout@v4
