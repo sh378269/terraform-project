@@ -10,10 +10,10 @@ resource "aws_ecr_repository" "ecr-repo" {
   }
 }
  
-resource "aws_ecr_repository_policy" "ecr-repo-permission" {
-  repository = aws_ecr_repository.ecr-repo.name
-  policy     = data.terraform_remote_state.shared.outputs.ecrpermission-json
-}
+#resource "aws_ecr_repository_policy" "ecr-repo-permission" {
+#  repository = aws_ecr_repository.ecr-repo.name
+#  policy     = data.terraform_remote_state.shared.outputs.ecrpermission-json
+#}
  
 resource "aws_ecr_lifecycle_policy" "ecr-repo-lifeCyclepolicy" {
   repository = aws_ecr_repository.ecr-repo.name
