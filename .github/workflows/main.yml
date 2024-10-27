@@ -1,7 +1,7 @@
 name: first simple project
 on: 
   push:
-    branch: testenv
+    branch: main
 jobs:
   first-jobs:
     runs-on: ubuntu-latest
