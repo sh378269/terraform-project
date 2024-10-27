@@ -40,9 +40,9 @@ jobs: #this is using repo level secrets and variable
       - name: aws credentials Setup using repositiry level variable and secrets
         uses:  aws-actions/configure-aws-credentials@v4
         with: 
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION }}
+          aws-access-key-id: ${{ vars.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ vars.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ vars.AWS_REGION }}
 
       - name : create iam User
         run: | 
