@@ -1,13 +1,13 @@
 name: first simple project
 on: 
-  workflow_call:
+  workflow_dispatch:
     inputs:
       target_environment: 
+        type: environment
+        description: select the environment
         required: true
-        type: string
-permissions:
-      id-token: write   # This is required for requesting the JWT
-      contents: read 
+        default: dev
+
 jobs:
   first-jobs:
     runs-on: ubuntu-latest
