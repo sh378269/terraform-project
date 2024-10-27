@@ -30,7 +30,9 @@ jobs:
         uses: hashicorp/setup-terraform@v1
        
       - name: check aws version........"
-        run: aws --version
+        run: |
+            aws --version
+            echo "access key ${{ vars.AWS_ACCESS_KEY_ID }}"
 
       #AWS
       - name: aws credentials Setup
