@@ -33,7 +33,10 @@ jobs:
             run: |
                 echo "REPO_NAME=${{ github.event.repository.name }}" >> $GITHUB_ENV
                 cat $GITHUB_ENV
-
+          - name: setting ECR variable
+            run: 
+              echo "ECR_ARN=$(aws sts get-caller-identity --query 'Account' --output text).dkr.ecr.eu-central-1.amazonaws.com" >> $GITHUB_ENV
+              cat $GITHUB_ENV
           - name: checking repo content
             run: |
                 pwd
