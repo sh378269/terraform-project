@@ -95,6 +95,7 @@ jobs: #this is using repo level secrets and variable
             mvn test
             cd target
             ls -lrt
+            jave -jar my-app-1.0-SNAPSHOT.jar
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
 
