@@ -9,7 +9,7 @@ on:
         default: dev
   
 jobs: #this is using repo level secrets and variable
-  second-jobs:
+  first-jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository 
@@ -55,7 +55,7 @@ jobs: #this is using repo level secrets and variable
         run: terraform apply -auto-approve
 
 jobs:
-  using-environment-level-secrest-variable:
+  second-job:
     runs-on: ubuntu-latest
     environment: dev
     steps:
