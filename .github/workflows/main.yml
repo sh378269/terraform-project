@@ -82,7 +82,7 @@ jobs: #this is using repo level secrets and variable
       - name: check maven and java version 
         run: |
             java --version
-            maven --version
+            mvn -v
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
