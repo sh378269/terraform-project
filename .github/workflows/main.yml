@@ -45,12 +45,12 @@ jobs:
               echo "ECR_ARN=$(aws sts get-caller-identity --query 'Account' --output text).dkr.ecr.eu-central-1.amazonaws.com" >> $GITHUB_ENV
               cat $GITHUB_ENV
 
-          - name: creating s3 bucket
-            run: |
-                cd ./.github/workflows/S3
-                terraform init
-                terraform plan
-                terraform apply --auto-approve
+         # - name: creating s3 bucket
+          #  run: |
+          #      cd ./.github/workflows/S3
+          #      terraform init
+          #      terraform plan
+          #      terraform apply --auto-approve  
 
           - name: creating ECR and cloudwatch
             run: |
