@@ -9,7 +9,7 @@ on:
         default: dev
 env:
  ECR_TAG: ${{ github.event.repository.name }}
- ENV_NAME: ${{ input.target_environment }}
+ ENV_NAME: ${{ inputs.target_environment }}
 
 
 jobs:
