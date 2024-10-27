@@ -37,6 +37,7 @@ jobs:
         run: |
             aws --version
             echo "access key ${{ env.access_id }}"
+            echo "environment type ${{ env.environment }}
 
       #AWS
       - name: aws credentials Setup
