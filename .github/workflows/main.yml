@@ -98,6 +98,14 @@ jobs: #this is using repo level secrets and variable
             java -jar my-app-1.0-SNAPSHOT.jar
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
+      - name: check output file
+        run: |
+            ls -lrt
+      - name: copy artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: statefile
+          
 
       
 
