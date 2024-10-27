@@ -58,7 +58,7 @@ jobs: #this is using repo level secrets and variable
       - name: copy artifacts
         uses: actions/download-artifact@v3
         with:
-          name: statefile
+          name: terraform.tfstate
           
 
       #- name: terraform apply
