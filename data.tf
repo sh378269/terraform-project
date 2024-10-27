@@ -34,4 +34,3 @@ locals {
   environment                     = data.terraform_remote_state.shared.outputs.environment
   project_name                    = data.terraform_remote_state.shared.outputs.project_name
 }
-has context menu
