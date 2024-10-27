@@ -50,25 +50,23 @@ jobs: #this is using repo level secrets and variable
              terraform plan
              echo "check aws version........"
              aws --version
-      - name: terraform apply
+      #- name: terraform apply
         #if: github.ref == 'refs/heads/"testenv"' && github.event_name == 'push'
-        run: terraform apply -auto-approve
+        #run: terraform apply -auto-approve
 
         
   jobs:
    runs-on: ubuntu-latest
    environment: dev
-   needs: first-jobs
    steps:
       - name: Checkout Repository 
         uses: actions/checkout@v4
-   
-      - name: aws credentials Setup using environment level variable/secrest
-        uses:  aws-actions/configure-aws-credentials@v4
         with: 
-          aws-access-key-id: ${{ vars.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ vars.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ vars.AWS_REGION }}
+            repository: simple-java-maven-app
+
+      - name: checking repo content
+        run: |
+            ls -lrt
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
@@ -78,8 +76,5 @@ jobs: #this is using repo level secrets and variable
              pwd
              terraform init
              terraform plan
-             terraform destroy
-       
+          #   terraform destroy
 
-
-  
