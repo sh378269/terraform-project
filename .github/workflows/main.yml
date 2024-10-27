@@ -45,6 +45,7 @@ jobs:
           - name: creating ECR and cloudwatch
             run: |
                 
+                cd ..
                 pwd
                 ls -a
                 echo "creating ${{ env.ECR_TAG }} ECR and CloudWatch in ${{ env.ENV_NAME }} env AWS account"
