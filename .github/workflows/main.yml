@@ -48,7 +48,7 @@ jobs: #this is using repo level secrets and variable
              pwd
              terraform init
              terraform plan
-             terraform apply
+             terraform apply --auto-approve
              echo "check aws version........"
              aws --version
 
