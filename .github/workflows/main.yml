@@ -1,5 +1,5 @@
 name: first simple project
-on: work
+on: workflow_dispatch
 permissions:
       id-token: write   # This is required for requesting the JWT
       contents: read 
