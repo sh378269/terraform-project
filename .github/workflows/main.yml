@@ -8,8 +8,8 @@ on:
         required: true
         default: dev
 env:  
-  access_id: ${{ vars.AWS_ACCESS_KEY_ID}}
-  access_key: ${{ vars.AWS_SECRET_ACCESS_KEY }}
+  access_id: ${{ dev.vars.AWS_ACCESS_KEY_ID}}
+  access_key: ${{ dev.vars.AWS_SECRET_ACCESS_KEY }}
   environment: "dev"
   
 
