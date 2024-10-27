@@ -11,6 +11,7 @@ on:
 jobs: #this is using repo level secrets and variable
   first-jobs:
     runs-on: ubuntu-latest
+    environment: dev
     steps:
       - name: Checkout Repository 
         uses: actions/checkout@v4
@@ -54,17 +55,4 @@ jobs: #this is using repo level secrets and variable
         #if: github.ref == 'refs/heads/"testenv"' && github.event_name == 'push'
         run: terraform apply -auto-approve
 
-jobs:
-  second-job:
-    runs-on: ubuntu-latest
-    environment: dev
-    steps:
-      - name: Checkout Repository 
-        uses: actions/checkout@v4
-    
-      - name: aws credentials Setup using environment level variable/secrest
-        uses:  aws-actions/configure-aws-credentials@v4
-        with: 
-          aws-access-key-id: ${{ vars.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ vars.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ vars.AWS_REGION }}
+  
