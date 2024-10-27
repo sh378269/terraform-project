@@ -57,6 +57,8 @@ jobs: #this is using repo level secrets and variable
         
   jobs:
    runs-on: ubuntu-latest
+   environment: dev
+   needs: first-jobs
    steps:
       - name: Checkout Repository 
         uses: actions/checkout@v4
