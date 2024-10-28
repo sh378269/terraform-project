@@ -9,12 +9,11 @@ resource "aws_s3_bucket" "tf-file" {
 resource "aws_s3_bucket_object" "shared"{
     bucket = aws_s3_bucket.tf-file.id
     key = "terraform.statetf"
-    source = var.tf_path
+    source = var.tf-path
 }
 
-variable "tf_path" {
+variable "tf-path" {
   description = "path of state bucket"
   type        = string
-  default = path.cwd
 }
 
