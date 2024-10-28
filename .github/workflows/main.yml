@@ -58,7 +58,7 @@ jobs:
           - name: creating s3 bucket
             run: |
                 cd ./.github/workflows/S3
-                echo "tf path = ${{ GITHUB_ENV.TERRAFORM_CLI_PATH }}"
+                echo "tf path = ${{ TERRAFORM_CLI_PATH }}"
                 ls -lrt
                 terraform init
                 terraform plan -var=tf-path=${{ TERRAFORM_CLI_PATH }}
