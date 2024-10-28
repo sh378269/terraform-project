@@ -56,33 +56,31 @@ jobs:
                  echo " checking content " 
                  ls -lrt
                  pwd
-                 cp  terraform.tfstate S3/
-                 cd S3
                  ls -lrt
                  
-          - name: creating and updating s3 ucket
-            run: |
-                cd ./.github/workflows/S3
-                ls -lrt
-                terraform init
-                terraform plan 
-                terraform apply --auto-approve  
+          # - name: creating and updating s3 ucket
+          #   run: |
+          #       cd ./.github/workflows/S3
+          #       ls -lrt
+          #       terraform init
+          #       terraform plan 
+          #       terraform apply --auto-approve  
 
 
         
-          - name: checking repo content
-            run: |
-                pwd
-                ls -lrt
+          # - name: checking repo content
+          #   run: |
+          #       pwd
+          #       ls -lrt
 
-          - name: Set up Maven
-            uses: stCarolas/setup-maven@v5
-            with:
-              maven-version: 3.9.2
+          # - name: Set up Maven
+          #   uses: stCarolas/setup-maven@v5
+          #   with:
+          #     maven-version: 3.9.2
 
-          - name: Set up JDK 17
-            uses: actions/setup-java@v4
-            with:
-              java-version: '17'
-              distribution: 'adopt'
+          # - name: Set up JDK 17
+          #   uses: actions/setup-java@v4
+          #   with:
+          #     java-version: '17'
+          #     distribution: 'adopt'
 
