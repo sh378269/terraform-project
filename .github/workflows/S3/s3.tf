@@ -15,6 +15,6 @@ resource "aws_s3_bucket_object" "shared"{
 variable "tf_path" {
   description = "path of state bucket"
   type        = string
-  default = $PWD
+  default = path.cwd
 }
 
