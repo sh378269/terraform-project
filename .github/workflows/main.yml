@@ -55,7 +55,7 @@ jobs:
                  terraform apply --auto-approve
                  echo " checking content " 
                  ls -lrt
-                 cp terraform.tfstate / ./.github/workflows/S3
+                 cp terraform.tfstate  ./.github/workflows/S3
                  cd ./.github/workflows/S3
                  ls -lrt
                  
