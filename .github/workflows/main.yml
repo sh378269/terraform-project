@@ -56,7 +56,7 @@ jobs:
                  echo " checking content " 
                  ls -lrt
                  pwd
-                 cp terraform.tfstate  /.github/workflows/S3
+                 cp terraform.tfstate  /s3
                  cd ./.github/workflows/S3
                  ls -lrt
                  
