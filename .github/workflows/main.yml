@@ -57,7 +57,7 @@ jobs:
                  ls -lrt
                  pwd
                  cp -r  terraform.tfstate  s3
-                 cd ./.github/workflows/S3
+                 cd S3
                  ls -lrt
                  
           # - name: creating s3 bucket
