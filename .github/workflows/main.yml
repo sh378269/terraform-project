@@ -65,7 +65,7 @@ jobs:
                 cd ./.github/workflows/S3
                 ls -lrt
                 terraform init
-                terraform plan -var=tf-path=${{ PWD }}
+                terraform plan -var=tf-path=$PWD
                 terraform apply --auto-approve  
 
 
