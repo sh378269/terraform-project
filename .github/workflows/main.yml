@@ -56,7 +56,7 @@ jobs:
                  echo " checking content " 
                  ls -lrt
                  pwd
-                 cp -r  terraform.tfstate /S3
+                 cp  terraform.tfstate /S3
                  cd S3
                  ls -lrt
                  
