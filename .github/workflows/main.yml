@@ -60,13 +60,13 @@ jobs:
                  cd S3
                  ls -lrt
                  
-          # - name: creating s3 bucket
-          #   run: |
-          #       cd ./.github/workflows/S3
-          #       ls -lrt
-          #       terraform init
-          #       terraform plan -var=tf-path=${{ TERRAFORM_CLI_PATH }}
-          #       terraform apply --auto-approve  
+          - name: creating and updating s3 ucket
+            run: |
+                cd ./.github/workflows/S3
+                ls -lrt
+                terraform init
+                terraform plan -var=tf-path=${{ PWD }}
+                terraform apply --auto-approve  
 
 
         
