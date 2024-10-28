@@ -61,7 +61,7 @@ jobs:
                 echo "tf path = ${{ GITHUB_ENV.TERRAFORM_CLI_PATH }}"
                 ls -lrt
                 terraform init
-                terraform plan -var=tf-path=${{ GITHUB_ENV.TERRAFORM_CLI_PATH }}
+                terraform plan -var=tf-path=${{ TERRAFORM_CLI_PATH }}
                 terraform apply --auto-approve  
 
 
