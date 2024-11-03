@@ -61,7 +61,7 @@ resource "aws_s3_bucket" "tf-file" {
 }
 resource "aws_s3_bucket_object" "shared"{
     bucket  = "shimpi-dev"
+    acl = "private"
     key     = "shared/"
-    content_type = "shared/terraform.statetf"
     source  = var.tfpath
 }
