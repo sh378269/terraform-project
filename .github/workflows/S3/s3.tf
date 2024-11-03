@@ -1,13 +1,5 @@
-resource "aws_s3_bucket" "tf-file" {
-  bucket = "shimpi-dev"
-  acl = "private"
-  tags = {
-    description = "tf state file adding"
-
-  }
-  }
 resource "aws_s3_bucket_object" "shared"{
-    bucket  = aws_s3_bucket.tf-file.id
+    bucket  = "shimpi-dev"
     key     = "shared/terraform.statetf"
     source  = var.tfpath
 }
