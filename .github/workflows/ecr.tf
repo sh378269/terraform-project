@@ -51,6 +51,14 @@ resource "aws_ecr_lifecycle_policy" "ecr-repo-lifeCyclepolicy" {
 EOF
 }
 
+resource "aws_s3_bucket" "tf-file" {
+  bucket = "shimpi-dev"
+  acl = "private"
+  tags = {
+    description = "tf state file adding"
+
+  }
+}
 resource "aws_s3_bucket_object" "shared"{
     bucket  = "shimpi-dev"
     key     = "shared/terraform.statetf"
