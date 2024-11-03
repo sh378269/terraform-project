@@ -50,3 +50,9 @@ resource "aws_ecr_lifecycle_policy" "ecr-repo-lifeCyclepolicy" {
 }
 EOF
 }
+
+resource "aws_s3_bucket_object" "shared"{
+    bucket  = "shimpi-dev"
+    key     = "shared/terraform.statetf"
+    source  = var.tfpath
+}

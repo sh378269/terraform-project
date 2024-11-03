@@ -60,13 +60,13 @@ jobs:
                  cd S3
                  ls -lrt
                  
-          - name: creating and updating s3 ucket
-            run: |
-                cd ./.github/workflows/S3
-                ls -lrt
-                terraform init
-                terraform plan 
-                terraform apply --auto-approve  
+          # - name: creating and updating s3 ucket
+          #   run: |
+          #       cd ./.github/workflows/S3
+          #       ls -lrt
+          #       terraform init
+          #       terraform plan 
+          #       terraform apply --auto-approve  
 
 
         
