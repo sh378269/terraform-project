@@ -63,11 +63,13 @@ resource "aws_s3_bucket_object" "shared"{
     bucket  = aws_s3_bucket.tf-file.id
     acl     = "private"
     key     = "shared/"
-   # content_type  = "application/x-directory"
+   #content type is kind of type of data you are uploading like image, file etc 
+    content_type  = "application/x-directory"  
 }
 
 resource "aws_s3_bucket_object" "upload_tffile"{
     bucket  = aws_s3_bucket.tf-file.id
-    key     = "shared/terraform.statetf"
-    source  = var.tfpath
+    for_each = fileset ("/home/runner/work/terraform-project/terraform-project/.github/workflows/*", "*")
+    key     = "shared/${each.value}"
+    source  = "/home/runner/work/terraform-project/terraform-project/.github/workflows/${each.value}"
 }
