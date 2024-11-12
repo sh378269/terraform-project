@@ -63,7 +63,7 @@ resource "aws_s3_bucket_object" "shared"{
     bucket  = aws_s3_bucket.tf-file.id
     acl     = "private"
     key     = "shared/"
-    content_type  = "application/x-directory"
+   # content_type  = "application/x-directory"
 }
 
 resource "aws_s3_bucket_object" "upload_tffile"{
