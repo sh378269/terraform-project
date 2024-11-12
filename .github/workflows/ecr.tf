@@ -53,7 +53,7 @@ EOF
 
 resource "aws_s3_bucket" "tf-file" {
   bucket = "shimpi-dev"
-  acl = "public"
+  acl = "private"
   tags = {
     description = "tf state file adding"
 
@@ -61,7 +61,7 @@ resource "aws_s3_bucket" "tf-file" {
 }
 resource "aws_s3_bucket_object" "shared"{
     bucket  = "shimpi-dev"
-    acl = "public"
+    acl = "private"
     key     = "shared/"
     content_type  = "application/x-directory"
 }
