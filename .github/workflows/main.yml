@@ -45,7 +45,7 @@ jobs:
               echo "ECR_ARN=$(aws sts get-caller-identity --query 'Account' --output text).dkr.ecr.eu-central-1.amazonaws.com" >> $GITHUB_ENV
               cat $GITHUB_ENV
 
-          - name: creating ECR and cloudwatch
+          - name: creating ECR and S3
             run: |
                 cd ./.github/workflows
                 ls -a

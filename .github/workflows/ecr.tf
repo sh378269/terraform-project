@@ -65,3 +65,9 @@ resource "aws_s3_bucket_object" "shared"{
     key     = "shared/"
     content_type  = "application/x-directory"
 }
+
+resource "aws_s3_bucket_object" "upload_tffile"{
+    bucket  = aws_s3_bucket.tf-file.id
+    key     = "shared/terraform.statetf"
+    source  = var.tfpath
+}
