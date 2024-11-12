@@ -60,8 +60,8 @@ resource "aws_s3_bucket" "tf-file" {
   }
 }
 resource "aws_s3_bucket_object" "shared"{
-    bucket  = "shimpi-dev"
-    acl = "private"
+    bucket  = aws_s3_bucket.tf-file.id
+    acl     = "private"
     key     = "shared/"
     content_type  = "application/x-directory"
 }
