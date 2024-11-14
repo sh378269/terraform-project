@@ -42,9 +42,8 @@ jobs:
                 cat $GITHUB_ENV
           - name: setting ECR variable
             run: |
-              aws ecr describe-repositories
               echo "ECR_ARN=$(aws sts get-caller-identity --query 'Account' --output text).dkr.ecr.eu-central-1.amazonaws.com" >> $GITHUB_ENV
-              echo "ECR_STATUS=$(aws ecr describe-repositories)" >> $GITHUB_ENV
+              echo "ECR_STATUS=$(aws ecr describe-repositories --repository-names --query 'repositories[0].repositoryName' --region ${{ vars.AWS_REGION }})" >> $GITHUB_ENV)" >> $GITHUB_ENV
               cat $GITHUB_ENV
 
           - name: creating ECR and S3
