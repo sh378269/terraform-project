@@ -72,5 +72,5 @@ resource "aws_s3_bucket_object" "upload_tffile"{
     bucket  = aws_s3_bucket.tf-file.id
     for_each = fileset ("/home/runner/work/terraform-project/terraform-project/.github/workflows/","*")
     key     = "shared/${each.value}"
-    source  = "var.tfpath/${each.value}"
+    source  = var.tfpath/"${each.value}"
 }
