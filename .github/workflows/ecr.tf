@@ -67,9 +67,10 @@ resource "aws_s3_bucket_object" "shared"{
     content_type  = "application/x-directory"  
 }
 
+# uploading multiple files from some path
 resource "aws_s3_bucket_object" "upload_tffile"{
     bucket  = aws_s3_bucket.tf-file.id
     for_each = fileset ("/home/runner/work/terraform-project/terraform-project/.github/workflows/","*")
     key     = "shared/${each.value}"
-    source  = "/home/runner/work/terraform-project/terraform-project/.github/workflows/${each.value}"
+    source  = "var.tfpath/${each.value}"
 }
