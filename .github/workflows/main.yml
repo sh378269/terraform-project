@@ -51,7 +51,7 @@ jobs:
                 cd ./.github/workflows
                 ls -a
                 echo "creating ${{ env.ECR_TAG }} ECR and CloudWatch in ${{ env.ENV_NAME }} env AWS account"
-                 terraform init -backend-config=bucket=shimpi-dev
+                 terraform init 
                  terraform plan  
                  terraform apply --auto-approve
                  echo " checking content " 
