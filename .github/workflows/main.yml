@@ -56,10 +56,7 @@ jobs:
                  terraform apply --auto-approve
                  echo " checking content " 
                  ls -lrt
-                 pwd
-                 cp  terraform.tfstate S3/
-                 cd S3
-                 ls -lrt
+  
                  
           # - name: creating and updating s3 ucket
           #   run: |
