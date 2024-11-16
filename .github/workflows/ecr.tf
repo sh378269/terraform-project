@@ -62,7 +62,7 @@ resource "aws_s3_bucket" "files" {
     }
 }
 resource "aws_s3_bucket_object" "shared"{
-    count         = "${length(var.s3_bucket_name)}"
+    count   = "${length(var.s3_bucket_name)}"
     bucket  = "${var.s3_bucket_name[count.index]}.id"
     acl     = "private"
     key     = "shared/"
