@@ -63,7 +63,7 @@ resource "aws_s3_bucket" "files" {
 }
 resource "aws_s3_bucket_object" "shared"{
     count   = "${length(var.s3_bucket_name)}"
-    bucket  = aws_s3_bucket_name[count.index].id
+    bucket  = aws_s3_bucket.files[count.index].id
     acl     = "private"
     key     = "shared/"
    #content type is kind of type of data you are uploading like image, file etc 
