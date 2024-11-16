@@ -57,7 +57,7 @@ resource "aws_s3_bucket" "files" {
    bucket        = "${var.s3_bucket_name[count.index]}"
    acl           = "private"
    tags = {
-     description = "used for env,"
+     description = "used for env ${var.s3_bucket_name[count.index]}"
 
     }
 }
