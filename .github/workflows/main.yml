@@ -46,6 +46,28 @@ jobs:
               echo "ECR_STATUS=$(aws ecr describe-repositories --query 'repositories[0].repositoryName' --region ${{ vars.AWS_REGION }})" >> $GITHUB_ENV
               cat $GITHUB_ENV
 
+          - name: Checkout Repository 
+            uses: actions/checkout@v4
+            with: 
+             repository: sh378269/simple-java-maven-app
+
+          - name: Set up Maven
+            uses: stCarolas/setup-maven@v5
+            with:
+              maven-version: 3.9.2
+
+          - name: Set up JDK 17
+            uses: actions/setup-java@v4
+            with:
+              java-version: '17'
+              distribution: 'adopt'
+
+          - name: maven build
+            run: |
+              pwd
+              mvn -B -DskipTests clean package
+              ls -lrt
+
           - name: creating ECR and S3
             run: |
                 cd ./.github/workflows
@@ -59,30 +81,4 @@ jobs:
                  echo " checking content " 
                  ls -lrt
   
-                 
-          # - name: creating and updating s3 ucket
-          #   run: |
-          #       cd ./.github/workflows/S3
-          #       ls -lrt
-          #       terraform init
-          #       terraform plan 
-          #       terraform apply --auto-approve  
-
-
-        
-          - name: checking repo content
-            run: |
-                pwd
-                ls -lrt
-
-          - name: Set up Maven
-            uses: stCarolas/setup-maven@v5
-            with:
-              maven-version: 3.9.2
-
-          - name: Set up JDK 17
-            uses: actions/setup-java@v4
-            with:
-              java-version: '17'
-              distribution: 'adopt'
-
+          
