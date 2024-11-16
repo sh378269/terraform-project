@@ -57,7 +57,7 @@ resource "aws_s3_bucket" "tf-file" {
    bucket        = "${var.s3_bucket_name[count.index]}"
    acl           = "private"
    tags = {
-     description = "used for ${var.s3_bucket_name}"
+     description = "used for env,"
 
     }
 }
