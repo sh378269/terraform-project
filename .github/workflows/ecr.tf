@@ -68,9 +68,10 @@ resource "aws_s3_bucket_object" "shared"{
 }
 
 # uploading multiple files from some path
-resource "aws_s3_bucket_object" "upload_tffile"{
-    bucket  = aws_s3_bucket.tf-file.id
-    for_each =  fileset("${var.tfpath}/","*")
-    key     = "shared/${each.value}"
-    source  = each.value
-}
+# resource "aws_s3_bucket_object" "upload_tffile"{
+#     bucket  = aws_s3_bucket.tf-file.id
+#     for_each =  fileset("${var.tfpath}/","*")
+#     key     = "shared/${each.value}"
+#     source  = each.value
+# }
+
