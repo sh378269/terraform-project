@@ -6,5 +6,5 @@ variable "tfpath" {
 
 variable "s3_bucket_name" {
   type    = list(string)
-  default = ["prod_bucket", "stage-bucket", "qa_bucket"]
+  default = ["prod-bucket", "stage-bucket", "qa-bucket"]
 }
