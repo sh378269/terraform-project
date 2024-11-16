@@ -67,18 +67,20 @@ jobs:
               pwd
               mvn -B -DskipTests clean package
               ls -lrt
+              cd target
+              ls -lrt
 
-          - name: creating ECR and S3
-            run: |
-                cd ./.github/workflows
-                ls -a
-                echo "creating ${{ env.ECR_TAG }} ECR and CloudWatch in ${{ env.ENV_NAME }} env AWS account"
-                 terraform init
-                 echo " checking state file before execution"
-                 ls -lrt
-                 terraform plan  
-                 terraform apply --auto-approve
-                 echo " checking content " 
-                 ls -lrt
+          # - name: creating ECR and S3
+          #   run: |
+          #       cd ./.github/workflows
+          #       ls -a
+          #       echo "creating ${{ env.ECR_TAG }} ECR and CloudWatch in ${{ env.ENV_NAME }} env AWS account"
+          #        terraform init
+          #        echo " checking state file before execution"
+          #        ls -lrt
+          #        terraform plan  
+          #        terraform apply --auto-approve
+          #        echo " checking content " 
+          #        ls -lrt
   
           
