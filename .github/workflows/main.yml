@@ -69,7 +69,8 @@ jobs:
               ls -lrt
               cd target
               ls -lrt
-
+          - name: Build Docker
+            run: docker --version
           # - name: creating ECR and S3
           #   run: |
           #       cd ./.github/workflows
