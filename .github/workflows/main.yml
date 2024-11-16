@@ -76,9 +76,11 @@ jobs:
           - name: Build Docker
             run: |
               pwd
+              cd ./.github/workflows
+              pwd
               ls -lrt
               docker --version
-              docker build -f Dockerfile -n my-java-image
+              docker build -f Dockerfile -t my-java-image
               ls -lrt
 
           
