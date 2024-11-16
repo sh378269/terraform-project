@@ -51,13 +51,15 @@ resource "aws_ecr_lifecycle_policy" "ecr-repo-lifeCyclepolicy" {
 EOF
 }
 
-resource "aws_s3_bucket" "tf-file" {
-  bucket = "shimpi-dev"
-  acl = "private"
-  tags = {
-    description = "tf state file adding and checking changes"
 
-  }
+resource "aws_s3_bucket" "tf-file" {
+   count         = "${length(var.s3_bucket_name)}"
+   bucket        = "${var.s3_bucket_name[count.index]}"
+   acl           = "private"
+   tags = {
+     description = "used for ${var.s3_bucket_name}"
+
+    }
 }
 resource "aws_s3_bucket_object" "shared"{
     bucket  = aws_s3_bucket.tf-file.id
