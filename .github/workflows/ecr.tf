@@ -62,7 +62,7 @@ resource "aws_s3_bucket" "tf-file" {
     }
 }
 resource "aws_s3_bucket_object" "shared"{
-    bucket  = aws_s3_bucket.tf-file[count.index].id
+    bucket  = aws_s3_bucket.tf-file.id
     acl     = "private"
     key     = "shared/"
    #content type is kind of type of data you are uploading like image, file etc 
