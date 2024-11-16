@@ -1,9 +1,9 @@
 resource "aws_ecr_repository" "ecr-repo" {
   name                 = "terraform-project2"
-  image_tag_mutability = "MUTABLE"
+  image_tag_mutability = "IMMUTABLE"
  
   image_scanning_configuration {
-    scan_on_push = true
+    scan_on_push = false
   }
   encryption_configuration {
     encryption_type = "KMS"
