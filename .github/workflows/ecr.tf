@@ -61,13 +61,13 @@ resource "aws_s3_bucket" "files" {
 
     }
 }
-# resource "aws_s3_bucket_object" "shared"{
-#     bucket  = aws_s3_bucket.tf-file.id
-#     acl     = "private"
-#     key     = "shared/"
-#    #content type is kind of type of data you are uploading like image, file etc 
-#     content_type  = "application/x-directory"  
-# }
+resource "aws_s3_bucket_object" "shared"{
+    bucket  = "${var.s3_bucket_name[count.index]}.id"
+    acl     = "private"
+    key     = "shared/"
+   #content type is kind of type of data you are uploading like image, file etc 
+    content_type  = "application/x-directory"  
+}
 
 # uploading multiple files from some path
 # resource "aws_s3_bucket_object" "upload_tffile"{
