@@ -1,5 +1,5 @@
 resource "aws_ecr_repository" "ecr-repo" {
-  name                 = "terraform-project"
+  name                 = "terraform-project2"
   image_tag_mutability = "MUTABLE"
  
   image_scanning_configuration {
@@ -55,7 +55,7 @@ resource "aws_s3_bucket" "tf-file" {
   bucket = "shimpi-dev"
   acl = "private"
   tags = {
-    description = "tf state file adding"
+    description = "tf state file adding and checking changes"
 
   }
 }
