@@ -1,3 +1,3 @@
 # terraform-project
 
-Here we have code which will use terraform backend command to fetch .tf file from s3 bucket to match the state of infrastructure
+Here we will create a docker file and using that will create image of our application and will push it to ERC
