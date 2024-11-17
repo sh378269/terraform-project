@@ -77,8 +77,10 @@ jobs:
               docker --version
               docker buildx build -t my-java-image .
               ls -lrt
-              cd /home/runner/work/terraform-project/terraform-project/.github/workflows
-              ls -lrt
+              docker images
+              docker run my-java-image -t my-java-container
+              docker ps -a
+
 
           
           # - name: creating ECR and S3
