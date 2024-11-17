@@ -78,7 +78,7 @@ jobs:
               docker buildx build -t my-java-image:1.0 .
               ls -lrt
               docker images
-              docker run --name my-java-container -d my-java-image
+              docker run --name my-java-container -d my-java-image:1.0
               docker ps -a
 
           - name: Push docker image to ECR # Below complete cmd we can get from ECR, login to ECR repo go to repo click on view push command and can get all these details
