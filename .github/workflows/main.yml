@@ -80,7 +80,8 @@ jobs:
               pwd
               ls -lrt
               docker --version
-              docker buildx build -f Dockerfile -t my-java-image
+              docker buildx -- help
+              docker buildx build -t my-java-image
               ls -lrt
 
           
