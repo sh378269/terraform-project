@@ -81,6 +81,15 @@ jobs:
               docker run --name my-java-container -d my-java-image
               docker ps -a
 
+          - name: Push docker image to ECR # Below complete cmd we can get from ECR, login to ECR repo go to repo click on view push command and can get all these details
+            run: |
+         
+                aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin 789725493949.dkr.ecr.eu-central-1.amazonaws.com
+
+                docker tag my-java-image:java:1.0 789725493949.dkr.ecr.eu-central-1.amazonaws.com/terraform-project2:java:1.0
+
+                docker push 789725493949.dkr.ecr.eu-central-1.amazonaws.com/terraform-project2:java:1.0
+
 
           
           # - name: creating ECR and S3
