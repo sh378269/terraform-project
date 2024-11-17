@@ -78,7 +78,7 @@ jobs:
               docker buildx build -t my-java-image .
               ls -lrt
               docker images
-              docker run my-java-image -t my-java-container
+              docker run --name my-java-container -d my-java-image
               docker ps -a
 
 
