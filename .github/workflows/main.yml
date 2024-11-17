@@ -70,19 +70,19 @@ jobs:
               cd target
               ls -lrt
 
-          - name: Checkout Repository 
-            uses: actions/checkout@v4
-
           - name: Build Docker
             run: |
               pwd
-              cd ./.github/workflows
-              pwd
               ls -lrt
               docker --version
-              docker buildx build -t my-java-image .
+              docker buildx build -t my-java-image 
               ls -lrt
 
+
+          - name: Checkout Repository 
+            uses: actions/checkout@v4
+
+        
           
           # - name: creating ECR and S3
           #   run: |
