@@ -77,12 +77,9 @@ jobs:
               docker --version
               docker buildx build -t my-java-image .
               ls -lrt
+              cd /home/runner/work/terraform-project/terraform-project/.github/workflows
+              ls -lrt
 
-
-          - name: Checkout Repository 
-            uses: actions/checkout@v4
-
-        
           
           # - name: creating ECR and S3
           #   run: |
